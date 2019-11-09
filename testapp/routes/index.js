@@ -5,7 +5,8 @@ var mysql = require("mysql");
 var con = mysql.createConnection({
     host: "localhost",
     user: "billy",
-    password: "Abc12345"
+    password: "Abc12345",
+    database: "testdb"
 });
 var sqlState = -1;
 var error = null;
