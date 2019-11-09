@@ -25,7 +25,7 @@ router.get('/', function (req, res, next) {
     }
     con.query("select * from User", function (err, result) {
         if (err) {
-            res.send("Connect to database fail");
+            res.send(result);
             return;
         }
         res.send(result);
