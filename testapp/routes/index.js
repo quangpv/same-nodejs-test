@@ -8,8 +8,10 @@ var con = mysql.createConnection({
     password: "Abc12345"
 });
 var sqlState = -1;
+var error = null;
 con.connect(function (err) {
-    sqlState = err ? 0 : 1
+    sqlState = err ? 0 : 1;
+    error = err
 });
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -18,7 +20,7 @@ router.get('/', function (req, res, next) {
         return;
     }
     if (sqlState === 0) {
-        res.send("Connect to database fail");
+        res.send({error: error});
         return;
     }
     con.query("select * from User", function (err, result) {
