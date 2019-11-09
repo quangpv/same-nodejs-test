@@ -3,7 +3,7 @@ var router = express.Router();
 var mysql = require("mysql");
 
 var con = mysql.createConnection({
-    host: "localhost",
+    host: "103.7.41.150",
     user: "billy",
     password: "Abc12345"
 });
@@ -25,7 +25,7 @@ router.get('/', function (req, res, next) {
     }
     con.query("select * from User", function (err, result) {
         if (err) {
-            res.send(result);
+            res.send(err);
             return;
         }
         res.send(result);
